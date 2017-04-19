@@ -1,0 +1,4 @@
+# Adaptive-Cruise-Control
+ACC model using LIDAR.
+
+The project uses a Neato XVLIDAR for obstacle detection. It is a 2-d LIDAR with a 6m range. More information about it can be found @ https://xv11hacking.wikispaces.com/LIDAR+Sensor. The LIDAR is connected to master controller via USB. An Arduino is used for motor control. Rotary encoders are connected to UNO32 for speed measurement: Arduino is too slow to handle the high speed encoders used. Both the lower level controllers, Arduino and UNO32, are connected to master controller via USB. All processing is done at master controller level with just motor control signals being sent to Arduino. To improve performance, a thread each has been dedicated to read LIDAR and UNO32, while the main thread reads the sub-threads and makes control decision.
